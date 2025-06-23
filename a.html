@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flower Info Cards</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+   
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: 
+        linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
+        url('/Images/bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #4a2c2a;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    
+    .card-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap; /* allow wrap on small screens */
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      flex: 1 1 calc(25% - 20px); /* 4 cards in one row with gap */
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-width: 250px;
+    }
+
+    
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-bottom: 1px solid #ddd;
+    }
+
+    
+    .card-content {
+      padding: 15px;
+      flex-grow: 1;
+    }
+
+    .card-content h3 {
+      margin-top: 0;
+      color: #6b3e26;
+    }
+
+    .card-content p {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    /* Responsive for tablets: 2 cards per row */
+    @media (max-width: 900px) {
+      .card {
+        flex: 1 1 calc(50% - 20px);
+      }
+    }
+
+    /* Responsive for mobile: 1 card per row */
+    @media (max-width: 480px) {
+      .card {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Beautiful Flowers</h1>
+
+  <div class="card-container">
+    <div class="card">
+      <img src="/Images/rose.jpeg" alt="Rose" />
+      <div class="card-content">
+        <h3>Rose</h3>
+        <p>Symbol of love and passion, roses are one of the most popular flowers worldwide.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="/Images/sunflower.jpg" alt="Sunflower" />
+      <div class="card-content">
+        <h3>Sunflower</h3>
+        <p>Known for their large bright yellow petals, sunflowers symbolize happiness and warmth.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="/Images/Tulip.jpg" alt="Tulip" />
+      <div class="card-content">
+        <h3>Tulip</h3>
+        <p>Tulips bloom in spring and come in many colors representing perfect love and elegance.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="/Images/daisy.jpg" alt="Daisy" />
+      <div class="card-content">
+        <h3>Daisy</h3>
+        <p>Daisies symbolize innocence and purity, and their simple beauty brightens any garden.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

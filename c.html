@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Random Joke Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background-image: url("Images/jokebg.jpg"); /* 🖼 Your background image path */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #fff; /* Makes text readable on dark background */
+    }
+
+    h2 {
+      color: #0b0807;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    #joke-box {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.85); /* Light background for readability */
+      border-radius: 10px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 18px;
+      color: #333;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #c2185b;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>😂 Random Joke Generator</h2>
+  <button onclick="getJoke()">Get a Joke</button>
+
+  <div id="joke-box">
+    Click the button to see a joke!
+  </div>
+
+  <script>
+    // Function that fetches a joke from the API
+    function getJoke() {
+      // Send request to the Joke API
+      fetch('https://official-joke-api.appspot.com/random_joke')
+        .then(response => response.json()) // Convert response to JSON
+        .then(data => {
+          // Extract the setup and punchline
+          const setup = data.setup;
+          const punchline = data.punchline;
+
+          // Display joke in the joke-box
+          document.getElementById('joke-box').innerHTML = `
+            <p><strong>${setup}</strong></p>
+            <p>${punchline}</p>
+          `;
+        })
+        .catch(error => {
+          // Handle errors like no internet connection
+          document.getElementById('joke-box').innerText = "Oops! Couldn't load a joke right now.";
+          console.error("Error fetching joke:", error);
+        });
+    }
+  </script>
+
+</body>
+</html>

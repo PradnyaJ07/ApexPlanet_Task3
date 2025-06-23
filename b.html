@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flower Carousel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #fff0f5;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h2 {
+      color: #c2185b;
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .carousel-img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .carousel-buttons {
+      margin-top: 15px;
+    }
+
+    .carousel-buttons button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 16px;
+      background-color: #c2185b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .carousel-buttons button:hover {
+      background-color: #a01447;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Flower Image Carousel</h2>
+
+  <div class="carousel-container">
+    <img id="carousel-image" class="carousel-img" src="" alt="Flower Image" />
+  </div>
+
+  <div class="carousel-buttons">
+    <button onclick="prevImage()">Previous</button>
+    <button onclick="nextImage()">Next</button>
+  </div>
+
+  <script>
+    // Array of flower image URLs
+    const images = [
+      "Images/carousel1.jpg",
+      "Images/carousel2.jpg",
+      "Images/carousel3.jpg",
+      "Images/carousel4.jpg",
+      "Images/carousel5.jpg"
+    ];
+
+    let currentIndex = 0;
+
+    // Function to update the image based on currentIndex
+    function updateImage() {
+      const imgElement = document.getElementById("carousel-image");
+      imgElement.src = images[currentIndex];
+    }
+
+    // Function to go to the next image
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length; // Loop to start
+      updateImage();
+    }
+
+    // Function to go to the previous image
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop backward
+      updateImage();
+    }
+
+    // Load the first image on page load
+    window.onload = updateImage;
+  </script>
+
+</body>
+</html>
